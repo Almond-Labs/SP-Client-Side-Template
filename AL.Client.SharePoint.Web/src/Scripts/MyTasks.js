@@ -46,22 +46,16 @@ myTasks.render(div);"
             element.appendChild(this._div);
         },
         onSave: function (listName, callback) {
-            console.log("onSave listName: " + listName);
             var parent = dom(this._div).parent("[webpartid]");
             var wpId = parent.getAttribute("webpartid");
             sp.csom.webparts.updateProperties(wpId, function (currentProperties) {
                 var content = currentProperties.Content;
-                console.debug(content);
                 var optionsRegex = /(var\s*options\s*=\s*)({[^}]*})/;
                 var matches = content.match(optionsRegex);
-                console.debug(matches);
                 var options = JSON.parse(matches[2]);
-                console.debug(options);
                 options.listName = listName;
-                console.debug(options);
                 var newOptions = matches[1] + JSON.stringify(options);
                 content = content.replace(optionsRegex, newOptions);
-                console.debug(content);
                 return { Content: content };
             }).done(callback).fail(callback);
         }

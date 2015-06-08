@@ -12,7 +12,12 @@ var SPReact = (function () {
             };
         },
 		getInitialState: function() {
-			var users = Array.isArray(this.props.users) ? this.props.users : [this.props.users];
+			var users = Array.isArray(this.props.users) ? 
+				this.props.users : 
+				this.props.users.results ? 
+					this.props.users.results :
+					[this.props.users];
+
             return {
                 users: users,
 				userHtml: []

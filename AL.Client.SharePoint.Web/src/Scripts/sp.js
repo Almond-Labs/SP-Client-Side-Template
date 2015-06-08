@@ -3,7 +3,7 @@
 var sp = (function () {
     var sp = {
         loadScripts: function (scripts) {
-            scripts = Array.isArray(scripts) ? script : [scripts];
+            scripts = Array.isArray(scripts) ? scripts : [scripts];
             var def = new deferred();
 
             sp.context.webServerRelativeUrl.done(function (url) {
@@ -12,7 +12,16 @@ var sp = (function () {
                         SP.SOD.registerSod(scripts[x], url + '/_layouts/15/' + scripts[x]);
                     }
                 }
-                SP.SOD.loadMultiple(scripts, def.resolve.bind(def));
+
+                var promises = scripts.map(function(c) {
+                	var scriptDef = new deferred();
+                	SP.SOD.loadMultiple([c], function() {
+                		scriptDef.resolve();
+                	});
+                	return scriptDef.promise();
+                });
+
+                deferred.all(promises).done(def.resolve.bind(def));
             });
 
             return def.promise();
@@ -167,7 +176,7 @@ var sp = (function () {
                         });
                     }
                     else {
-                        sp.loadScripts("SP.UserProfiles.js").done(function () {
+                        sp.loadScripts(["sp.js", "SP.UserProfiles.js"]).done(function () {
                             var clientContext = SP.ClientContext.get_current();
                             //console.log("username: " + userName);
                             var userProfilePropertiesForUser = new SP.UserProfiles.UserProfilePropertiesForUser(clientContext, userName, profileProperties);

@@ -128,6 +128,7 @@ var module = (function () {
                 module.value = null;
                 if (module.global) {
                     (1, eval)(body);
+                    module.state = moduleState.loaded;
                     callback(module);
                 }
                 else {
