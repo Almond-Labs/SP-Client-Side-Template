@@ -142,7 +142,7 @@ var sp = (function () {
                 updateProperties: function (wpId, processProperties) {
                     var def = new deferred();
                     sp.csom.webparts.getProperties(wpId).done(function (webPartProperties) {
-                        var obj = processProperties(webPartProperties.$5_0.$1h_0.$m_dict);
+                        var obj = processProperties(webPartProperties.get_fieldValues());
                         sp.csom.webparts.saveProperties(wpId, obj)
                             .done(def.resolve.bind(def))
                             .fail(def.reject.bind(def));
