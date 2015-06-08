@@ -1,0 +1,2 @@
+﻿module.define({ name: "react", url: module.defaultUrl + "../References/react.min.js", global: true });
+module.define({ name: "bootstrap", url: module.defaultUrl + "../Styles/AL.bootstrap.css", global: true });

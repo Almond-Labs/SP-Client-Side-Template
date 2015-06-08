@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="Style Library" Url="Style Library/AL.Client">
+    <File Path="Style Library\References\mocha.js" Url="References/mocha.js" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Style Library\References\react.js" Url="References/react.js" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Style Library\References\react.min.js" Url="References/react.min.js" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Style Library\Scripts\ajax.js" Url="Scripts/ajax.js" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Style Library\Scripts\deferred.js" Url="Scripts/deferred.js" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Style Library\Scripts\dom.js" Url="Scripts/dom.js" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Style Library\Scripts\initModule.js" Url="Scripts/initModule.js" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Style Library\Scripts\module.js" Url="Scripts/module.js" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Style Library\Scripts\MyTasks.js" Url="Scripts/MyTasks.js" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Style Library\Scripts\React_MyTasks.js" Url="Scripts/React_MyTasks.js" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Style Library\Scripts\sp.js" Url="Scripts/sp.js" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Style Library\Scripts\SPReact.js" Url="Scripts/SPReact.js" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Style Library\Styles\AL.bootstrap.css" Url="Styles/AL.bootstrap.css" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Style Library\Styles\bootstrap.css" Url="Styles/bootstrap.css" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Style Library\Styles\mocha.css" Url="Styles/mocha.css" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+  </Module>
+</Elements>

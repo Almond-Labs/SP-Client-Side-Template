@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <CustomAction Id="AL.Client.SharePoint.ScriptReferences.module.js" Location="ScriptLink" Sequence="1050" ScriptSrc="~siteCollection/Style Library/AL.Client/Scripts/module.js" />
+  <CustomAction Id="AL.Client.SharePoint.ScriptReferences.initModule.js" Location="ScriptLink" Sequence="1051" ScriptSrc="~siteCollection/Style Library/AL.Client/Scripts/initModule.js" />
+</Elements>

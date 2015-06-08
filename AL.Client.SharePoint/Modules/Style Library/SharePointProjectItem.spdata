@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectItem Type="Microsoft.VisualStudio.SharePoint.Module" DefaultFile="Elements.xml" SupportedTrustLevels="All" SupportedDeploymentScopes="Web, Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
+  <Files>
+    <ProjectItemFile Source="Elements.xml" Target="Style Library\" Type="ElementManifest" />
+    <ProjectItemFile Source="References\mocha.js" Target="Style Library\References\" Type="ElementFile" />
+    <ProjectItemFile Source="References\react.js" Target="Style Library\References\" Type="ElementFile" />
+    <ProjectItemFile Source="References\react.min.js" Target="Style Library\References\" Type="ElementFile" />
+    <ProjectItemFile Source="Scripts\ajax.js" Target="Style Library\Scripts\" Type="ElementFile" />
+    <ProjectItemFile Source="Scripts\deferred.js" Target="Style Library\Scripts\" Type="ElementFile" />
+    <ProjectItemFile Source="Scripts\dom.js" Target="Style Library\Scripts\" Type="ElementFile" />
+    <ProjectItemFile Source="Scripts\initModule.js" Target="Style Library\Scripts\" Type="ElementFile" />
+    <ProjectItemFile Source="Scripts\module.js" Target="Style Library\Scripts\" Type="ElementFile" />
+    <ProjectItemFile Source="Scripts\MyTasks.js" Target="Style Library\Scripts\" Type="ElementFile" />
+    <ProjectItemFile Source="Scripts\React_MyTasks.js" Target="Style Library\Scripts\" Type="ElementFile" />
+    <ProjectItemFile Source="Scripts\sp.js" Target="Style Library\Scripts\" Type="ElementFile" />
+    <ProjectItemFile Source="Scripts\SPReact.js" Target="Style Library\Scripts\" Type="ElementFile" />
+    <ProjectItemFile Source="Styles\AL.bootstrap.css" Target="Style Library\Styles\" Type="ElementFile" />
+    <ProjectItemFile Source="Styles\bootstrap.css" Target="Style Library\Styles\" Type="ElementFile" />
+    <ProjectItemFile Source="Styles\mocha.css" Target="Style Library\Styles\" Type="ElementFile" />
+  </Files>
+</ProjectItem>
