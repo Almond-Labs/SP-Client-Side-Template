@@ -27,7 +27,7 @@ var ajax = (function () {
         }
         http.send(options.data);
         return def.promise();
-    }
+    };
 
     ajax.get = function (url, headers) {
         headers["Accept"] = headers["Accept"] || "text/plain";
@@ -36,7 +36,7 @@ var ajax = (function () {
             method: "GET",
             headers: headers
         });
-    }
+    };
 
     ajax.getJSON = function (url, accept, headers) {
         headers = headers || {};
@@ -47,7 +47,7 @@ var ajax = (function () {
             def.resolve(obj);
         }).fail(def.reject.bind(def));
         return def.promise();
-    }
+    };
 
     ajax.post = function (url, data, headers) {
         headers = headers || {};
@@ -58,7 +58,7 @@ var ajax = (function () {
             data: data,
             headers: headers
         });
-    }
+    };
 
     ajax.postJSON = function (url, data, accept, headers) {
         data = data || {};
@@ -71,8 +71,10 @@ var ajax = (function () {
             def.resolve(obj);
         }).fail(def.reject.bind(def));
         return def.promise();
-    }
+    };
 
-    var module = {modulePlaceholder: true};
-    return module.exports = ajax;
+    (typeof exports !== 'undefined')
+        && exports(ajax);
+
+    return ajax;
 })();

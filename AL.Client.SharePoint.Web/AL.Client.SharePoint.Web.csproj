@@ -57,6 +57,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ajax.test.html" />
     <Content Include="package.json" />
     <Content Include="src\JSX\React_MyTasks.jsx" />
     <Content Include="src\JSX\SPReact.jsx" />

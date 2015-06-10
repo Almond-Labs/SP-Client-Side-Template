@@ -13,12 +13,12 @@ var sp = (function () {
                     }
                 }
 
-                var promises = scripts.map(function(c) {
-                	var scriptDef = new deferred();
-                	SP.SOD.loadMultiple([c], function() {
-                		scriptDef.resolve();
-                	});
-                	return scriptDef.promise();
+                var promises = scripts.map(function (c) {
+                    var scriptDef = new deferred();
+                    SP.SOD.loadMultiple([c], function () {
+                        scriptDef.resolve();
+                    });
+                    return scriptDef.promise();
                 });
 
                 deferred.all(promises).done(def.resolve.bind(def));
@@ -82,7 +82,7 @@ var sp = (function () {
             }
         },
         user: {
-            getById: function(userId) {
+            getById: function (userId) {
                 var def = new deferred();
                 sp.context.webServerRelativeUrl.done(function (url) {
                     sp.getJSON(url + "/_api/web/GetUserById(" + userId + ")")
@@ -162,12 +162,9 @@ var sp = (function () {
             user: {
                 profileProperties: function (userName, profileProperties) {
                     var def = new deferred();
-                    /*console.log("params");
-                    console.debug(arguments);*/
 
                     if (userName === parseInt(userName)) {
                         sp.user.getById(userName).done(function (user) {
-                            //console.debug(user);
                             sp.csom.user.profileProperties(user.d.LoginName, profileProperties)
                                 .done(def.resolve.bind(def))
                                 .fail(def.reject.bind(def));
@@ -178,14 +175,11 @@ var sp = (function () {
                     else {
                         sp.loadScripts(["sp.js", "SP.UserProfiles.js"]).done(function () {
                             var clientContext = SP.ClientContext.get_current();
-                            //console.log("username: " + userName);
                             var userProfilePropertiesForUser = new SP.UserProfiles.UserProfilePropertiesForUser(clientContext, userName, profileProperties);
                             var peopleManager = new SP.UserProfiles.PeopleManager(clientContext);
                             var userProps = peopleManager.getUserProfilePropertiesFor(userProfilePropertiesForUser);
                             clientContext.load(userProfilePropertiesForUser);
-                            //console.log("before eqas");
                             clientContext.executeQueryAsync(function () {
-                                //console.log("after eqas");
                                 var properties = {};
                                 for (var x = 0; x < profileProperties.length; x++) {
                                     properties[profileProperties[x]] = userProps[x];
@@ -238,8 +232,10 @@ var sp = (function () {
                 return !!(inEditMode || wikiInEditMode);
             }
         }
-    }
+    };
 
-    var module = { modulePlaceholder: true };
-    return module.exports = sp;
+    (typeof exports !== 'undefined')
+        && exports(sp);
+
+    return sp;
 })();

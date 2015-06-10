@@ -42,7 +42,7 @@
 
     Deferred.all = function (promiseArray) {
         return waitForPromises(Array.prototype.slice.call(promiseArray));
-    }
+    };
 
     Deferred.prototype = {
         resolve: function () {
@@ -92,6 +92,8 @@
         }
     };
 
-    var module = { modulePlaceholder: true };
-    return module.exports = Deferred;
+    (typeof exports !== 'undefined')
+        && exports(Deferred);
+
+    return Deferred;
 })();

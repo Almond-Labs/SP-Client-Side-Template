@@ -59,9 +59,11 @@ myTasks.render(div);"
                 return { Content: content };
             }).done(callback).fail(callback);
         }
-    }
+    };
 
     /* export MyTasks constructor */
-    var module = { modulePlaceholder: true };
-    return module.exports = MyTasks;
+    (typeof exports !== 'undefined')
+        && exports(MyTasks);
+
+    return MyTasks;
 })();

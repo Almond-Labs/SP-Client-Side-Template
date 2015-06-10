@@ -24,7 +24,12 @@ var SPReact = (function () {
             }
         },
         componentWillReceiveProps: function (newProps) {
-			var users = Array.isArray(newProps.users) ? newProps.users : [newProps.users];
+			var users = Array.isArray(newProps.users) ? 
+				newProps.users : 
+				newProps.users.results ? 
+					newProps.users.results :
+					[newProps.users];
+
             this.setState({
                 users: users
             });
@@ -60,6 +65,8 @@ var SPReact = (function () {
         }
     });
 
-    var module = { modulePlaceholder: true };
-    return module.exports = SPReact;
+    (typeof exports !== 'undefined')
+        && exports(SPReact);
+
+    return SPReact;
 })();

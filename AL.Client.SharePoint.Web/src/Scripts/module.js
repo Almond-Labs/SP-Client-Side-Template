@@ -77,14 +77,13 @@ var module = (function () {
      */
     function executeModule(body, parameters, aliases) {
         body = "(function(" + aliases.join(",") + ") { " + body + "})";
-        var externalModule = {};
         var func = eval(body);
-        /*var externalModule = {};
-        var allFunctionParameters = aliases.concat(["externalModule", body]);*/
-        //var func = Function.apply(null, allFunctionParameters);
-        var allParameters = parameters.concat(externalModule);
-        func.apply(null, allParameters);
-        return externalModule.exports;
+        var moduleValue = null;
+        function exports(val) {
+            moduleValue = val;
+        }
+        func.apply(null, parameters);
+        return moduleValue;
     }
 
     function require(reference, alias) {
@@ -96,11 +95,6 @@ var module = (function () {
     var moduleReplace = "externalModule";
 
     function readModuleBody(body, requiredModules, moduleParameters) {
-        if (!body.match(moduleRegex))
-            throw "Unable to find module placeholder. Expecting: '{ modulePlaceholder : true }'";
-
-        body = body.replace(moduleRegex, moduleReplace);
-
         var match = null;
         while (match = body.match(requireRegex)) {
             var module = eval(match[1]);
@@ -227,14 +221,14 @@ var module = (function () {
     var state = {
         pending: 0,
         ready: 1
-    }
+    };
 
     var moduleState = {
         defined: 0,
         loading: 1,
         loaded: 2,
         error: 3
-    }
+    };
 
     function initModule(self) {
         var scriptTag = document.querySelector("script[src$='/module.js']");
@@ -318,7 +312,7 @@ var module = (function () {
                 }
             }
         }
-    } 
+    };
 
     var ret = new Module();
     ret.Module = Module;

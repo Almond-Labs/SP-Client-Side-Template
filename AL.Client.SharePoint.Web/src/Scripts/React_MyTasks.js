@@ -134,6 +134,8 @@ var React_MyTasks = (function () {
         }
     });
 
-    var module = { modulePlaceholder: true };
-    return module.exports = MyTasks;
+    (typeof exports !== 'undefined')
+        && exports(MyTasks);
+
+    return MyTasks;
 })();

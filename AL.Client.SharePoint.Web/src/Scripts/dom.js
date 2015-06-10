@@ -15,7 +15,7 @@
         parents: function (selector) {
             var parents = [];
             var foundElements = dom.selectAll(selector);
-            for( var x=0; x<foundElements.length; x++ ) {
+            for (var x = 0; x < foundElements.length; x++) {
                 if (foundElements[x].contains(this._element))
                     parents.push(foundElements[x]);
             }
@@ -24,14 +24,16 @@
         parent: function (selector) {
             var parent = null
             var foundElements = dom.selectAll(selector);
-            for(var x=0; x<foundElements.length && !parent; x++ ) {
+            for (var x = 0; x < foundElements.length && !parent; x++) {
                 if (foundElements[x].contains(this._element))
                     parent = foundElements[x];
             }
             return parent;
         }
-    }
+    };
 
-    var module = { modulePlaceholder: true };
-    return module.exports = dom;
+    (typeof exports !== 'undefined')
+        && exports(dom);
+
+    return dom;
 })();
