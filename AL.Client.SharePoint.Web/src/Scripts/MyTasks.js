@@ -1,7 +1,6 @@
 ﻿//! require("React_MyTasks.js", "React_MyTasks")
 //! require('bootstrap')
 //! require('sp.js', 'sp')
-//! require('dom.js', 'dom')
 var MyTasks = (function () {
     /* MyTasks class wraps react template to show tasks assigned to the
     current user

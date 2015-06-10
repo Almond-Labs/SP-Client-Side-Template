@@ -1,16 +1,17 @@
 //! require('react')
 //! require('SPReact.js', 'SPReact')
+//! require('React_ProgressBar.js', 'React_ProgressBar')
 var React_MyTasks = (function () {
 
 	var MyTasksDisplay = React.createClass({displayName: "MyTasksDisplay",
-		getInitialState: function() {
+		getDefaultProps: function() {
 			return {
 				listName: null,
 				listData: [],
 				errorMessage: null
 			};
 		},
-		getDefaultProps: function() {
+		getInitialState: function() {
 			return {
 				listName: null,
 				listData: [],
@@ -39,13 +40,36 @@ var React_MyTasks = (function () {
 						React.createElement("table", {className: "table"}, 
 							React.createElement("tr", null, 
 								React.createElement("th", null, "Title"), 
-								React.createElement("th", null, "Assigned To")
+								React.createElement("th", null, "Assigned To"), 
+								React.createElement("th", null, "Progress")
 							), 
 								this.state.listData.map(function(c, i) {
+									var status = c.PercentComplete === 1 ? "success" : "info";
+									var statusMessage = c.PercentComplete === 1 ? "Done!" : "";
+									var diffDays = 0
+									if (c.DueDate && status !== "success") {
+										var oneDay = 24*60*60*1000;
+										var dueDate = new Date(Date.parse(c.DueDate));
+										var today = new Date();
+										var diffDays = Math.round((dueDate.getTime() - today.getTime())/(oneDay));
+										if (diffDays <= 0) {
+											status = "danger";
+											statusMessage = "due " + Math.abs(diffDays) + " ago!";
+										}
+										else if (diffDays < 7) {
+											status = "warning";
+											statusMessage = "due in " + diffDays + " days!";
+										}
+									}
+
 									return (
 										React.createElement("tr", {key: i}, 
 											React.createElement("td", null, c.Title), 
-											React.createElement("td", null, React.createElement(SPReact.User, {users: c.AssignedToId}))
+											React.createElement("td", null, React.createElement(SPReact.UserPresence, {users: c.AssignedToId})), 
+											React.createElement("td", null, 
+												React.createElement(React_ProgressBar, {percentComplete: c.PercentComplete * 100, status: status}), 
+												React.createElement("p", null, statusMessage)
+											)
 										)
 									);
 								})	

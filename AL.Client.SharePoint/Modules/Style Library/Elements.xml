@@ -7,7 +7,6 @@
     <File Path="Style Library\Scripts\ajax.js" Url="Scripts/ajax.js" Type="GhostableInLibrary" ReplaceContent="TRUE" />
     <File Path="Style Library\Scripts\deferred.js" Url="Scripts/deferred.js" Type="GhostableInLibrary" ReplaceContent="TRUE" />
     <File Path="Style Library\Scripts\dom.js" Url="Scripts/dom.js" Type="GhostableInLibrary" ReplaceContent="TRUE" />
-    <File Path="Style Library\Scripts\initModule.js" Url="Scripts/initModule.js" Type="GhostableInLibrary" ReplaceContent="TRUE" />
     <File Path="Style Library\Scripts\module.js" Url="Scripts/module.js" Type="GhostableInLibrary" ReplaceContent="TRUE" />
     <File Path="Style Library\Scripts\MyTasks.js" Url="Scripts/MyTasks.js" Type="GhostableInLibrary" ReplaceContent="TRUE" />
     <File Path="Style Library\Scripts\React_MyTasks.js" Url="Scripts/React_MyTasks.js" Type="GhostableInLibrary" ReplaceContent="TRUE" />
@@ -16,5 +15,9 @@
     <File Path="Style Library\Styles\AL.bootstrap.css" Url="Styles/AL.bootstrap.css" Type="GhostableInLibrary" ReplaceContent="TRUE" />
     <File Path="Style Library\Styles\bootstrap.css" Url="Styles/bootstrap.css" Type="GhostableInLibrary" ReplaceContent="TRUE" />
     <File Path="Style Library\Styles\mocha.css" Url="Styles/mocha.css" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Style Library\Scripts\React_ProgressBar.js" Url="Scripts/React_ProgressBar.js" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Style Library\Scripts\app.js" Url="Scripts/app.js" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Style Library\Scripts\JSLink\TaskProgressBar.js" Url="Scripts/JSLink/TaskProgressBar.js" Type="GhostableInLibrary" ReplaceContent="TRUE" />
+    <File Path="Style Library\Scripts\ProgressBar.js" Url="Scripts/ProgressBar.js" Type="GhostableInLibrary" ReplaceContent="TRUE" />
   </Module>
 </Elements>

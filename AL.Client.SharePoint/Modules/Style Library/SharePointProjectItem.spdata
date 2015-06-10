@@ -8,7 +8,6 @@
     <ProjectItemFile Source="Scripts\ajax.js" Target="Style Library\Scripts\" Type="ElementFile" />
     <ProjectItemFile Source="Scripts\deferred.js" Target="Style Library\Scripts\" Type="ElementFile" />
     <ProjectItemFile Source="Scripts\dom.js" Target="Style Library\Scripts\" Type="ElementFile" />
-    <ProjectItemFile Source="Scripts\initModule.js" Target="Style Library\Scripts\" Type="ElementFile" />
     <ProjectItemFile Source="Scripts\module.js" Target="Style Library\Scripts\" Type="ElementFile" />
     <ProjectItemFile Source="Scripts\MyTasks.js" Target="Style Library\Scripts\" Type="ElementFile" />
     <ProjectItemFile Source="Scripts\React_MyTasks.js" Target="Style Library\Scripts\" Type="ElementFile" />
@@ -17,5 +16,9 @@
     <ProjectItemFile Source="Styles\AL.bootstrap.css" Target="Style Library\Styles\" Type="ElementFile" />
     <ProjectItemFile Source="Styles\bootstrap.css" Target="Style Library\Styles\" Type="ElementFile" />
     <ProjectItemFile Source="Styles\mocha.css" Target="Style Library\Styles\" Type="ElementFile" />
+    <ProjectItemFile Source="Scripts\React_ProgressBar.js" Target="Style Library\Scripts\" Type="ElementFile" />
+    <ProjectItemFile Source="Scripts\app.js" Target="Style Library\Scripts\" Type="ElementFile" />
+    <ProjectItemFile Source="Scripts\JSLink\TaskProgressBar.js" Target="Style Library\Scripts\JSLink\" Type="ElementFile" />
+    <ProjectItemFile Source="Scripts\ProgressBar.js" Target="Style Library\Scripts\" Type="ElementFile" />
   </Files>
 </ProjectItem>

@@ -1,0 +1,3 @@
+//! require("React_ProgressBar.js", "React_ProgressBar")
+//! require('bootstrap')
+var ProgressBar=function(){function a(){this._div=document.createElement("div"),this._div.className="AL",this._component=React.render(React.createElement(React_ProgressBar),this._div)}return a.prototype={set percentComplete(a){this._component.setState({percentComplete:a})},set status(a){this._component.setState({status:a})},render:function(a){a.appendChild(this._div)}},"undefined"!=typeof exports&&exports(a),a}();

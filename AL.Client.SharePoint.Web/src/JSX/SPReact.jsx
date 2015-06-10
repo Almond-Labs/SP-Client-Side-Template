@@ -5,7 +5,7 @@ var SPReact = (function () {
 
     var SPReact = {};
 
-    SPReact.User = React.createClass({
+    SPReact.UserPresence = React.createClass({
         getDefaultProps: function () {
             return {
                 users: []

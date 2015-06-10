@@ -1,6 +1,30 @@
 ﻿//! require("deferred.js", "deferred")
 //! require("ajax.js", "ajax")
 var sp = (function () {
+
+    var userPresenceCache = {};
+    function renderUserPresence(user, schemaOverride) {
+        var def = new deferred();
+
+        schemaOverride = schemaOverride || { "WithPictureDetail": "1", "PictureSize": "Size_36px" };
+
+        var renderCtx = new ContextInfo();
+        renderCtx.Templates = {};
+        renderCtx.Templates["Fields"] = {};
+
+        var listSchema = { "EffectivePresenceEnabled": "1", "PresenceAlt": "User Presence" };
+        var userData = {
+            "id": user.AccountName, "department": user.Role, "jobTitle": user.Title,
+            "title": user.PreferredName, "email": user.WorkEmail, "picture": user.PictureURL, "sip": user.SipAddress
+        };
+        sp.loadScripts("clienttemplates.js").done(function () {
+            var html = RenderUserFieldWorker(renderCtx, schemaOverride, userData, listSchema);
+            def.resolve(html);
+        });
+
+        return def.promise();
+    }
+
     var sp = {
         loadScripts: function (scripts) {
             scripts = Array.isArray(scripts) ? scripts : [scripts];
@@ -194,25 +218,27 @@ var sp = (function () {
                     return def.promise();
                 },
                 renderUserPresence: function (userName, schemaOverride) {
-                    schemaOverride = schemaOverride || { "WithPictureDetail": "1", "PictureSize": "Size_36px" };
                     var def = new deferred();
 
-                    var properties = ["PreferredName", "PictureURL", "AccountName", "Title", "WorkEmail", "SipAddress"];
-                    sp.csom.user.profileProperties(userName, properties).done(function (user) {
-                        var renderCtx = new ContextInfo();
-                        renderCtx.Templates = {};
-                        renderCtx.Templates["Fields"] = {};
-
-                        var listSchema = { "EffectivePresenceEnabled": "1", "PresenceAlt": "User Presence" };
-                        var userData = {
-                            "id": user.AccountName, "department": user.Role, "jobTitle": user.Title,
-                            "title": user.PreferredName, "email": user.WorkEmail, "picture": user.PictureURL, "sip": user.SipAddress
-                        };
-                        sp.loadScripts("clienttemplates.js").done(function () {
-                            var html = RenderUserFieldWorker(renderCtx, schemaOverride, userData, listSchema);
-                            def.resolve(html);
+                    if (userPresenceCache[userName]) {
+                        if (userPresenceCache[userName].html)
+                            def.resolve(userPresenceCache[userName].html);
+                        else
+                            userPresenceCache[userName].deferreds.push(def);
+                    }
+                    else {
+                        userPresenceCache[userName] = { deferreds: [], html: null };
+                        var properties = ["PreferredName", "PictureURL", "AccountName", "Title", "WorkEmail", "SipAddress"];
+                        sp.csom.user.profileProperties(userName, properties).done(function (user) {
+                            renderUserPresence(user, schemaOverride).done(function (html) {
+                                userPresenceCache[userName].html = html;
+                                for (var x = 0; x < userPresenceCache[userName].deferreds.length; x++) {
+                                    userPresenceCache[userName].deferreds[x].resolve(html);
+                                }
+                                def.resolve(html);
+                            });
                         });
-                    });
+                    }
 
                     return def.promise();
                 }
