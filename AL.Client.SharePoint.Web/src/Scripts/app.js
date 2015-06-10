@@ -24,7 +24,7 @@ var AL = (function () {
         },
         renderClientWebPart: function (moduleFilename, options) {
             var elemId = "ClientWebPart_" + clientControlId++;
-            document.write(AL.format("<div id='{0}'></div>", elemId))
+            document.write(AL.format("<div id='{0}'></div>", elemId));
             AL.renderClientControl(moduleFilename, elemId, options);
         },
         renderJSLinkField: function (moduleFilename, options) {
