@@ -102,6 +102,13 @@
                 dest: "src/Scripts",
                 ext: ".js"
             }
+        },
+        less: {
+            build: {
+                files: {
+                    "src/Styles/Styles.css" : "src/LESS/Styles.less"
+                }
+            }
         }
     });
 
@@ -109,8 +116,9 @@
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-react');
+    grunt.loadNpmTasks('grunt-contrib-less');
 
     // Default task(s).
-    grunt.registerTask('default', ['react', 'uglify:build', 'copy:build']);
-    grunt.registerTask('debug', ['react', 'copy:debug']);
+    grunt.registerTask('default', ['less', 'react', 'uglify:build', 'copy:build']);
+    grunt.registerTask('debug', ['less', 'react', 'copy:debug']);
 };
