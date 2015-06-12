@@ -20,5 +20,7 @@
     <ProjectItemFile Source="Scripts\app.js" Target="Style Library\Scripts\" Type="ElementFile" />
     <ProjectItemFile Source="Scripts\JSLink\TaskProgressBar.js" Target="Style Library\Scripts\JSLink\" Type="ElementFile" />
     <ProjectItemFile Source="Scripts\ProgressBar.js" Target="Style Library\Scripts\" Type="ElementFile" />
+    <ProjectItemFile Source="Scripts\Members.js" Target="Style Library\Scripts\" Type="ElementFile" />
+    <ProjectItemFile Source="Scripts\React_Members.js" Target="Style Library\Scripts\" Type="ElementFile" />
   </Files>
 </ProjectItem>

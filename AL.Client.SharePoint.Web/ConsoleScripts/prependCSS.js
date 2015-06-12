@@ -4,7 +4,7 @@ var body = fs.readFileSync("./src/Styles/bootstrap.css", "utf8");
 
 var selectorRegex = /\s*[^{}/]+?\{/g
 var filterRegex = [/@media/i];
-var prefix = ".AL ";
+var prefix = ".bootstrap ";
 
 var output = [];
 
@@ -37,6 +37,6 @@ for ( ; x < matches.length; x++) {
 output.push(parts[x]);
 
 var outFile = output.join("\r\n");
-fs.writeFileSync("./src/Styles/AL.boostrap.css", outFile, "utf8");
+fs.writeFileSync("./src/Styles/prefixed.boostrap.css", outFile, "utf8");
 
 

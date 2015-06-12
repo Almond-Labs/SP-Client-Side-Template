@@ -65,6 +65,44 @@ var SPReact = (function () {
         }
     });
 
+	SPReact.PeoplePicker = React.createClass({
+		getDefaultProps: function () {
+            return {
+                users: [],
+				onUpdate: function() {}
+            };
+        },
+		getInitialState: function() {
+            return {
+                users: this.props.users
+            }
+        },
+		componentWillReceiveProps: function(nextProps) {
+			this.setState({users: nextProps.users});
+		},
+		shouldComponentUpdate: function(nextProps, nextState) {
+			var update = !(nextState.users.length === this.state.users.length);
+			for( var x=0; x<nextState.users.length && !update; x++ ) {
+				update = nextState.users[x] !== this.state.users[x];
+			}
+			return update;
+		},
+		componentDidUpdate: function () {
+			var self = this;
+			var elem = React.findDOMNode(this);
+			elem.innerHTML = "";
+			sp.controls.peoplePicker(elem, function(newValues) {
+				self.props.onUpdate(newValues);
+			}, this.state.users);
+		},
+		componentDidMount: function() {
+			this.componentDidUpdate();
+		},
+		render: function() {
+			return (<div></div>);
+		}
+	});
+
     (typeof exports !== 'undefined')
         && exports(SPReact);
 

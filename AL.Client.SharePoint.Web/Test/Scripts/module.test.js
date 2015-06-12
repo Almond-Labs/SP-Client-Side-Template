@@ -29,6 +29,13 @@
         });
     });
 
+    it("load ajax module by name", function (done) {
+        mod.require("ajax", function (ajax) {
+            assert(ajax);
+            done();
+        });
+    });
+
     it("load ajax module by url", function (done) {
         mod.require({ url: "/src/Scripts/ajax.js" }, function (ajax) {
             done();

@@ -87,9 +87,11 @@
     <Content Include="Modules\Style Library\Scripts\deferred.js" />
     <Content Include="Modules\Style Library\Scripts\dom.js" />
     <Content Include="Modules\Style Library\Scripts\JSLink\TaskProgressBar.js" />
+    <Content Include="Modules\Style Library\Scripts\Members.js" />
     <Content Include="Modules\Style Library\Scripts\module.js" />
     <Content Include="Modules\Style Library\Scripts\MyTasks.js" />
     <Content Include="Modules\Style Library\Scripts\ProgressBar.js" />
+    <Content Include="Modules\Style Library\Scripts\React_Members.js" />
     <Content Include="Modules\Style Library\Scripts\React_MyTasks.js" />
     <Content Include="Modules\Style Library\Scripts\React_ProgressBar.js" />
     <Content Include="Modules\Style Library\Scripts\sp.js" />

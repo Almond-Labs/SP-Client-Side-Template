@@ -17,7 +17,7 @@
             }
         },
         copy: {
-            main: {
+            build: {
                 expand: true,
                 files: [
                     {
@@ -25,6 +25,47 @@
                         cwd: 'src/References',
                         src: ['*'],
                         dest: 'build/References'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'src/Styles',
+                        src: ['*'],
+                        dest: 'build/Styles'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'Test/Scripts/Refs',
+                        src: ['*'],
+                        dest: 'build/References'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'Test/Styles',
+                        src: ['*'],
+                        dest: 'build/Styles'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'build',
+                        src: ['**'],
+                        dest: '../AL.Client.SharePoint/Modules/Style Library'
+                    }
+                ]
+            },
+            debug: {
+                expand: true,
+                files: [
+                    {
+                        expand: true,
+                        cwd: 'src/References',
+                        src: ['*'],
+                        dest: 'build/References'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'src/Scripts',
+                        src: ['*'],
+                        dest: 'build/Scripts'
                     },
                     {
                         expand: true,
@@ -60,6 +101,6 @@
     grunt.loadNpmTasks('grunt-contrib-copy');
 
     // Default task(s).
-    grunt.registerTask('default', ['uglify', 'copy']);
-
+    grunt.registerTask('default', ['uglify:build', 'copy:build']);
+    grunt.registerTask('debug', ['copy:debug']);
 };

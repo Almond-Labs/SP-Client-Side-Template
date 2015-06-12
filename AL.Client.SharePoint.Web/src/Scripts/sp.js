@@ -2,7 +2,9 @@
 //! require("ajax.js", "ajax")
 var sp = (function () {
 
+    var peoplePickerIndex = 0;
     var userPresenceCache = {};
+
     function renderUserPresence(user, schemaOverride) {
         var def = new deferred();
 
@@ -103,6 +105,42 @@ var sp = (function () {
                     });
                 });
                 return def.promise();
+            }
+        },
+        controls: {
+            peoplePicker: function (element, onUpdate, initialValue, options) {
+                initialValue = initialValue || [];
+                initialValue = Array.isArray(initialValue) ? initialValue : [initialValue];
+                options = options || {};
+
+                element.id = element.id || "ClientSidePeoplePicker_" + peoplePickerIndex++;
+
+                var schema = {};
+                schema['PrincipalAccountType'] = 'User,DL,SecGroup,SPGroup';
+                schema['SearchPrincipalSource'] = 15;
+                schema['ResolvePrincipalSource'] = 15;
+                schema['AllowMultipleValues'] = true;
+                schema['MaximumEntitySuggestions'] = 50;
+                schema['Width'] = '280px';
+
+                for (var key in options) {
+                    schema[key] = options[key];
+                }
+
+                sp.loadScripts(["sp.js", "clienttemplates.js", "clientforms.js", "clientpeoplepicker.js", "autofill.js"]).done(function () {
+                    SPClientPeoplePicker_InitStandaloneControlWrapper(element.id, null, schema);
+                    var pickerId = element.id + "_TopSpan";
+                    var picker = SPClientPeoplePicker.SPClientPeoplePickerDict[pickerId];
+                    picker.AddUserKeys(initialValue.join(";"));
+                    picker.OnValueChangedClientScript = function (elementId, userInfo) {
+                        var temp = new Array();
+                        for (var x = 0; x < userInfo.length; x++) {
+                            if (userInfo[x].IsResolved)
+                                temp[temp.length] = userInfo[x].Key;
+                        }
+                        onUpdate(temp);
+                    };
+                });
             }
         },
         user: {

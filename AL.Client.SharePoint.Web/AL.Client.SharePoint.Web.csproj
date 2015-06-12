@@ -62,6 +62,7 @@
     <Content Include="src\JSX\React_MyTasks.jsx" />
     <Content Include="src\JSX\SPReact.jsx" />
     <Content Include="src\JSX\React_ProgressBar.jsx" />
+    <Content Include="src\JSX\React_Members.jsx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -80,9 +81,11 @@
     <Content Include="src\Scripts\dom.js" />
     <Content Include="src\Scripts\app.js" />
     <Content Include="src\Scripts\JSLink\TaskProgressBar.js" />
+    <Content Include="src\Scripts\Members.js" />
     <Content Include="src\Scripts\module.js" />
     <Content Include="src\Scripts\MyTasks.js" />
     <Content Include="src\Scripts\ProgressBar.js" />
+    <Content Include="src\Scripts\React_Members.js" />
     <Content Include="src\Scripts\React_MyTasks.js" />
     <Content Include="src\Scripts\React_ProgressBar.js" />
     <Content Include="src\Scripts\sp.js" />

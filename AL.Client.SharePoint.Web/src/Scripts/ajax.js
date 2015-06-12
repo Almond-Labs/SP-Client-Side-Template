@@ -1,4 +1,4 @@
-﻿//! require("deferred.js", "deferred")
+﻿//! require("deferred")
 var ajax = (function () {
 
     function ajax(options) {

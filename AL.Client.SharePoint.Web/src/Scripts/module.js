@@ -87,7 +87,7 @@ var module = (function () {
     }
 
     function require(reference, alias) {
-        return { reference: reference, alias: alias };
+        return { reference: reference, alias: alias || (reference.name || reference) };
     }
 
     var requireRegex = /^\s*\/\/!\s*(require\([^\)]+\))/;
@@ -170,8 +170,10 @@ var module = (function () {
     }
 
     function fillModuleReference(mod, defaultUrl) {
-        if (typeof mod === "string")
-            mod = { name: mod, url: defaultUrl + mod };
+        if (typeof mod === "string") {
+            var fileName = mod.match(/\.js$|\.css$/) ? mod : mod + ".js";
+            mod = { name: mod, url: defaultUrl + fileName };
+        }
         else if (mod.url) {
             mod.name = mod.name || mod.url.substring(mod.url.lastIndexOf("/") + 1);
         }
@@ -234,14 +236,12 @@ var module = (function () {
         var scriptTag = document.querySelector("script[src$='/module.js']");
         var baseUrl = scriptTag.src.replace("module.js", "");
         self._defaultUrl = baseUrl;
-        getModuleValue(self, "deferred.js", function (val) {
+        getModuleValue(self, "deferred", function (val) {
             self._state = state.ready;
             deferred = val;
             processCallbackQueue(self._onreadyQueue);
         });
     }
-
-    
 
     /** 
      * ##Class

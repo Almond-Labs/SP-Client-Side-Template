@@ -1,0 +1,5 @@
+//! require("React_Members.js", "React_Members")
+//! require('bootstrap')
+//! require('sp.js', 'sp')
+//! require('dom')
+var Members=function(){function a(){this._div=document.createElement("div"),this._div.className="AL",this._component=React.render(React.createElement(React_Members),this._div),this._component.setState({onSave:this.onSave.bind(this),editMode:sp.page.inEditMode})}return a.prototype={set users(a){this._component.setState({users:a})},render:function(a){a.appendChild(this._div)},onSave:function(a,b){var c=dom(this._div).parent("[webpartid]"),d=c.getAttribute("webpartid");sp.csom.webparts.updateProperties(d,function(b){var c=b.Content,d=/(var\s*options\s*=\s*)({[^}]*})/,e=c.match(d),f=JSON.parse(e[2]);f.users=a;var g=e[1]+JSON.stringify(f);return c=c.replace(d,g),{Content:c}}).done(b).fail(b)}},"undefined"!=typeof exports&&exports(a),a}();
