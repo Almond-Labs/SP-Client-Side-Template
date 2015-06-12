@@ -17,7 +17,7 @@
         });
     });
 
-    it("wrapper object rendering", function (done) {
+    /*it("wrapper object rendering", function (done) {
         //mod.scope(function (callback) {
             mod.require("MyTasks.js", function (myTasks) {
                 var div = document.createElement("div");
@@ -30,5 +30,5 @@
                 done();
             });
         //});
-    });
+    });*/
 });

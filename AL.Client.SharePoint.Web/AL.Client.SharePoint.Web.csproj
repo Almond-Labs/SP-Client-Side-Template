@@ -58,11 +58,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ajax.test.html" />
+    <Content Include="Demo\Demo.js" />
+    <Content Include="Demo\index.html" />
     <Content Include="package.json" />
     <Content Include="src\JSX\React_MyTasks.jsx" />
     <Content Include="src\JSX\SPReact.jsx" />
     <Content Include="src\JSX\React_ProgressBar.jsx" />
     <Content Include="src\JSX\React_Members.jsx" />
+    <Content Include="Demo\JSX\Demo.jsx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -105,6 +108,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

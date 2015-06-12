@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script type="text/javascript" src="../src/References/react.js"></script>
+    <script type="text/javascript" src="demo.js"></script>
+    <link rel="stylesheet" href="../src/Styles/bootstrap.css" />
+    <title></title>
+</head>
+<body>
+
+    <div id="container"></div>
+
+    <script type="text/javascript">
+
+        var element = React.createElement(Demo, { name: "Bert" });
+
+        var component = React.render(element, document.getElementById("container"));
+
+    </script>
+</body>
+</html>

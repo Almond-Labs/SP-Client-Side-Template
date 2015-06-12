@@ -93,14 +93,24 @@
                     }
                 ]
             }
+        },
+        react: {
+            build: {
+                expand: true,
+                cwd: "src/JSX",
+                src: ["**/*.jsx"],
+                dest: "src/Scripts",
+                ext: ".js"
+            }
         }
     });
 
     // Load the plugin that provides the "uglify" task.
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-react');
 
     // Default task(s).
-    grunt.registerTask('default', ['uglify:build', 'copy:build']);
-    grunt.registerTask('debug', ['copy:debug']);
+    grunt.registerTask('default', ['react', 'uglify:build', 'copy:build']);
+    grunt.registerTask('debug', ['react', 'copy:debug']);
 };
