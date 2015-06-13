@@ -17,3 +17,8 @@ To get started with the project you will need:
 * From within the Node.js command prompt, navigate to the directory containing the AL.Core.SharePoint.Web project.
   * Run: npm install
     * This command reads the npm dependencies from the file package.json and downloads them to the current directory
+
+After installing the required dependencies, you can run "grunt.cmd" from the Node.js command line and publish or deploy the SharePoint solution.
+
+## Solution Overview
+Most development resources are stored in the AL.Client.SharePoint.Web project. Deployed resources are copied to the AL.Client.SharePoint project using Grunt tasks.
